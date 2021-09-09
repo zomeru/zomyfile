@@ -23,7 +23,6 @@ router.post('/upload', upload.single('myFile'), async (req, res) => {
       });
     }
 
-    console.log(req.file);
     let uploadedFile: UploadApiResponse;
 
     try {
