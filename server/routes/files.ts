@@ -104,7 +104,7 @@ router.post('/email', async (req, res) => {
   if (!id || !emailTo || !emailFrom) {
     return res.status(400).json({
       status: 'Fail',
-      message: 'Invalid data',
+      message: 'All fields are required',
     });
   }
 
@@ -116,6 +116,10 @@ router.post('/email', async (req, res) => {
       status: 'Fail',
       message: 'File does not exist',
     });
+  }
+
+  if (file.sender) {
+    return res.status(400).json({ message: 'File is already sent!' });
   }
 
   //? 3. create transporter

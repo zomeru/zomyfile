@@ -41,6 +41,7 @@ export default function Home() {
   const newUploadReset = () => {
     setFile(null);
     setDownloadPageLink(null);
+    setUploadState('Upload');
   };
 
   return (
